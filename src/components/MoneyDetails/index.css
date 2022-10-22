@@ -1,0 +1,23 @@
+.title-value {
+  color: #334155;
+}
+
+.type-value {
+  color: #334155;
+}
+
+.amount-value {
+  color: #334155;
+}
+
+.delete-btn {
+  border: none;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+}
+
+.delete-img {
+  width: 20px;
+  height: 20px;
+}
