@@ -9,14 +9,9 @@ const MoneyDetails = props => {
   return (
     <li className="list-container">
       <p className="title-value">{title}</p>
-      <p className="amount-value">{amount}</p>
+      <p className="amount-value">Rs {amount}</p>
       <p className="type-value">{type}</p>
-      <button
-        testid="delete"
-        className="delete-btn"
-        type="button"
-        onClick={onClickDeleteIcon}
-      >
+      <button className="delete-btn" type="button" onClick={onClickDeleteIcon}>
         <img
           className="delete-img"
           src="https://assets.ccbp.in/frontend/react-js/money-manager/delete.png"

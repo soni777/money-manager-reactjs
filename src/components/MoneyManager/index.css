@@ -88,7 +88,7 @@
 
   .money-container {
     /* margin-right: 20px; */
-    width: 300px;
+    width: 32%;
   }
 }
 
@@ -98,7 +98,7 @@
 }
 
 .transaction-container {
-  width: 40%;
+  width: 100%;
   margin: 20px 30px 0px 0px;
   padding: 20px;
   border: solid 1px #cbd5e1;
@@ -146,8 +146,8 @@
 }
 
 .history-container {
-  width: 60%;
-  margin: 20px 30px 0px 0px;
+  width: 100%;
+  margin-top: 20px 30px 0px 0px;
   padding: 20px;
   border: solid 1px #cbd5e1;
   border-radius: 10px;
@@ -159,6 +159,13 @@
 @media (min-width: 768px) {
   .transaction-history-container {
     flex-direction: row;
+  }
+  .transaction-container {
+    width: 40%;
+  }
+  .history-container {
+    width: 60%;
+    margin-right: 0px;
   }
 }
 

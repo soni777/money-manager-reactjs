@@ -21,7 +21,6 @@ const transactionTypeOptions = [
 
 class MoneyManager extends Component {
   state = {
-    totalBalance: 0,
     totalIncome: 0,
     totalExpenses: 0,
     titleInput: '',
@@ -73,10 +72,9 @@ class MoneyManager extends Component {
   }
 
   onClickDelete = id => {
-    const {history, totalIncome, totalBalance, totalExpenses} = this.state
+    const {history, totalIncome, totalExpenses} = this.state
     let newIncome = totalIncome
     let newExpenses = totalExpenses
-    let newBalance = totalBalance
 
     const newHistory = history.filter(eachItem => {
       if (eachItem.id === id) {
@@ -85,7 +83,6 @@ class MoneyManager extends Component {
         } else {
           newExpenses = totalExpenses - parseInt(eachItem.amount)
         }
-        newBalance = newIncome - newExpenses
         return false
       }
       return true
@@ -93,14 +90,12 @@ class MoneyManager extends Component {
     this.setState({
       history: newHistory,
       totalIncome: newIncome,
-      totalBalance: newBalance,
       totalExpenses: newExpenses,
     })
   }
 
   render() {
     const {
-      totalBalance,
       totalIncome,
       totalExpenses,
       titleInput,
@@ -108,8 +103,7 @@ class MoneyManager extends Component {
       type,
       history,
     } = this.state
-
-    // const optionId = type === 'Income' ? 'INCOME' : 'EXPENSES'
+    const totalBalance = totalIncome - totalExpenses
     return (
       <div className="app-container">
         <div className="card-container">
@@ -129,9 +123,7 @@ class MoneyManager extends Component {
               />
               <div className="money-text-container">
                 <p className="money-title">Your balance</p>
-                <p testid="balanceAmount" className="money">
-                  {totalBalance}
-                </p>
+                <p className="money">Rs {totalBalance}</p>
               </div>
             </div>
 
@@ -143,9 +135,7 @@ class MoneyManager extends Component {
               />
               <div className="money-text-container">
                 <p className="money-title">Your Income</p>
-                <p testid="incomeAmount" className="money">
-                  {totalIncome}
-                </p>
+                <p className="money">Rs {totalIncome}</p>
               </div>
             </div>
             <div className="money-container expenses-container">
@@ -156,9 +146,7 @@ class MoneyManager extends Component {
               />
               <div className="money-text-container">
                 <p className="money-title">Your Expenses</p>
-                <p testid="expensesAmount" className="money">
-                  {totalExpenses}
-                </p>
+                <p className="money">Rs {totalExpenses}</p>
               </div>
             </div>
           </div>
